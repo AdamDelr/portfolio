@@ -5,8 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Connect4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="700">
     <Grid>
-        
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_A1" Content="A1" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Click="button_A1_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_A2" Content="A2" HorizontalAlignment="Left" Margin="130,40,0,0" VerticalAlignment="Top" Click="button_A2_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_A3" Content="A3" HorizontalAlignment="Left" Margin="220,40,0,0" VerticalAlignment="Top" Click="button_A3_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_A4" Content="A4" HorizontalAlignment="Left" Margin="310,40,0,0" VerticalAlignment="Top" Click="button_A4_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_A5" Content="A5" HorizontalAlignment="Left" Margin="400,40,0,0" VerticalAlignment="Top" Click="button_A5_Click"/>
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_A6" Content="A6" HorizontalAlignment="Left" Margin="490,40,0,0" VerticalAlignment="Top" Click="button_A6_Click"/>
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_A7" Content="A7" HorizontalAlignment="Left" Margin="580,40,0,0" VerticalAlignment="Top" Click="button_A7_Click" />
+
+        <!--Row 2-->
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_B1" Content="B1" HorizontalAlignment="Left" Margin="40,120,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_B2" Content="B2" HorizontalAlignment="Left" Margin="130,120,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_B3" Content="B3" HorizontalAlignment="Left" Margin="220,120,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_B4" Content="B4" HorizontalAlignment="Left" Margin="310,120,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_B5" Content="B5" HorizontalAlignment="Left" Margin="400,120,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_B6" Content="B6" HorizontalAlignment="Left" Margin="490,120,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="button_B7" Content="B7" HorizontalAlignment="Left" Margin="580,120,0,0" VerticalAlignment="Top" />
+
+        <!-- Row 3 -->
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="C1" Content="C1" HorizontalAlignment="Left" Margin="40,200,0,0" VerticalAlignment="Top" Click="button_A1_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="C2" Content="C2" HorizontalAlignment="Left" Margin="130,200,0,0" VerticalAlignment="Top" Click="button_A2_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="C3" Content="C3" HorizontalAlignment="Left" Margin="220,200,0,0" VerticalAlignment="Top" Click="button_A3_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="C4" Content="C4" HorizontalAlignment="Left" Margin="310,200,0,0" VerticalAlignment="Top" Click="button_A4_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="C5" Content="C5" HorizontalAlignment="Left" Margin="400,200,0,0" VerticalAlignment="Top" Click="button_A5_Click"/>
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="C6" Content="C6" HorizontalAlignment="Left" Margin="490,200,0,0" VerticalAlignment="Top" Click="button_A6_Click"/>
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="C7" Content="C7" HorizontalAlignment="Left" Margin="580,200,0,0" VerticalAlignment="Top" Click="button_A7_Click" />
+
+        <!-- Row 4 -->
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="D1" Content="D1" HorizontalAlignment="Left" Margin="40,280,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="D2" Content="D2" HorizontalAlignment="Left" Margin="130,280,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="D3" Content="D3" HorizontalAlignment="Left" Margin="220,280,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="D4" Content="D4" HorizontalAlignment="Left" Margin="310,280,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="D5" Content="D5" HorizontalAlignment="Left" Margin="400,280,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="D6" Content="D6" HorizontalAlignment="Left" Margin="490,280,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="D7" Content="D7" HorizontalAlignment="Left" Margin="580,280,0,0" VerticalAlignment="Top" />
+       
+        <!-- Row 5-->
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="E1" Content="E1" HorizontalAlignment="Left" Margin="40,360,0,0" VerticalAlignment="Top" Click="button_A1_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="E2" Content="E2" HorizontalAlignment="Left" Margin="130,360,0,0" VerticalAlignment="Top" Click="button_A2_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="E3" Content="E3" HorizontalAlignment="Left" Margin="220,360,0,0" VerticalAlignment="Top" Click="button_A3_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="E4" Content="E4" HorizontalAlignment="Left" Margin="310,360,0,0" VerticalAlignment="Top" Click="button_A4_Click" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="E5" Content="E5" HorizontalAlignment="Left" Margin="400,360,0,0" VerticalAlignment="Top" Click="button_A5_Click"/>
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="E6" Content="E6" HorizontalAlignment="Left" Margin="490,360,0,0" VerticalAlignment="Top" Click="button_A6_Click"/>
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="E7" Content="E7" HorizontalAlignment="Left" Margin="580,360,0,0" VerticalAlignment="Top" Click="button_A7_Click" />
+
+        <!-- Row 6-->
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="F1" Content="F1" HorizontalAlignment="Left" Margin="40,440,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="F2" Content="F2" HorizontalAlignment="Left" Margin="130,440,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="F3" Content="F3" HorizontalAlignment="Left" Margin="220,440,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="F4" Content="F4" HorizontalAlignment="Left" Margin="310,440,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="F5" Content="F5" HorizontalAlignment="Left" Margin="400,440,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="F6" Content="F6" HorizontalAlignment="Left" Margin="490,440,0,0" VerticalAlignment="Top" />
+        <Button Style="{StaticResource RoundButtonStyle}" x:Name="F7" Content="F7" HorizontalAlignment="Left" Margin="580,440,0,0" VerticalAlignment="Top" />
+
+
+
     </Grid>
+    
 </Window>
