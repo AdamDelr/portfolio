@@ -36,16 +36,18 @@ namespace Connect4
         }
 
         //Set Button Color Functions ---------------------------------------------------------
-        internal static void setRed(Button button)
+        internal static void setColor(Button button, bool redTurn)
         {
-            button.Background = button.Background == Brushes.Red ? (SolidColorBrush)
+            if (redTurn == true)
+            {
+                button.Background = button.Background == Brushes.Red ? (SolidColorBrush)
                 (new BrushConverter().ConvertFrom("SlateGray")) : Brushes.Red;
-        }
-
-        internal static void setBlue(Button button)
-        {
-            button.Background = button.Background == Brushes.Blue ? (SolidColorBrush)
+            }
+            else
+            {
+                button.Background = button.Background == Brushes.Blue ? (SolidColorBrush)
                 (new BrushConverter().ConvertFrom("SlateGray")) : Brushes.Blue;
+            }
         }
 
         internal static void setGrey(Button button)
@@ -62,86 +64,136 @@ namespace Connect4
             }
         }
 
-        internal static void dropPiece(Button A, Button B, Button C, Button D, Button E, Button F, Dictionary<string,bool> state)
+        internal static void dropPiece(Button A, Button B, Button C, Button D, Button E, Button F, GameState state)
         {
-            if(state[A.Name])
+            bool Redturn = state.redTurn;
+
+            if (state.getSlot(A.Name).isRed != null)
             {
                //Column is full
             }
-            else if (state[B.Name])
+            else if (state.getSlot(B.Name).isRed != null)
             {
-                Animate.setRed(A);
-                state[A.Name] = true;
+                Animate.setColor(A, Redturn);
+                if (Redturn == true)
+                {
+                    state.getSlot(A.Name).isRed = true;                 
+                }
+                else
+                {
+                    state.getSlot(A.Name).isRed = false;
+                }
+                state.redTurn = !Redturn;
             }
-            else if (state[C.Name])
+            else if (state.getSlot(C.Name).isRed != null)
             {
-                Animate.setRed(A);
+                Animate.setColor(A, Redturn);
                 Animate.delayedExecute(() => Animate.setGrey(A), .4);
 
-                Animate.delayedExecute(() => Animate.setRed(B), .3);
-                state[B.Name] = true;
+                Animate.delayedExecute(() => Animate.setColor(B, Redturn), .3);
+                if (Redturn == true)
+                {
+                    state.getSlot(B.Name).isRed = true;
+                }
+                else
+                {
+                    state.getSlot(B.Name).isRed = false;
+                }
+                state.redTurn = !Redturn;
             }
-            else if (state[D.Name])
+            else if (state.getSlot(D.Name).isRed != null)
             {
-                Animate.setRed(A);
+                Animate.setColor(A, Redturn);
                 Animate.delayedExecute(() => Animate.setGrey(A), .4);
 
-                Animate.delayedExecute(() => Animate.setRed(B), .3);
+                Animate.delayedExecute(() => Animate.setColor(B, Redturn), .3);
                 Animate.delayedExecute(() => Animate.setGrey(B), .4);
 
-                Animate.delayedExecute(() => Animate.setRed(C), .35);
-                state[C.Name] = true;
+                Animate.delayedExecute(() => Animate.setColor(C, Redturn), .35);
+                if (Redturn == true)
+                {
+                    state.getSlot(C.Name).isRed = true;
+                }
+                else
+                {
+                    state.getSlot(C.Name).isRed = false;
+                }
+                state.redTurn = !Redturn;
             }
-            else if (state[E.Name])
+            else if (state.getSlot(E.Name).isRed != null)
             {
-                Animate.setRed(A);
+                Animate.setColor(A, Redturn);
                 Animate.delayedExecute(() => Animate.setGrey(A), .4);
 
-                Animate.delayedExecute(() => Animate.setRed(B), .3);
+                Animate.delayedExecute(() => Animate.setColor(B, Redturn), .3);
                 Animate.delayedExecute(() => Animate.setGrey(B), .4);
 
-                Animate.delayedExecute(() => Animate.setRed(C), .35);
+                Animate.delayedExecute(() => Animate.setColor(C, Redturn), .35);
                 Animate.delayedExecute(() => Animate.setGrey(C), .45);
 
-                Animate.delayedExecute(() => Animate.setRed(D), .4);
-                state[D.Name] = true;
+                Animate.delayedExecute(() => Animate.setColor(D, Redturn), .4);
+                if (Redturn == true)
+                {
+                    state.getSlot(D.Name).isRed = true;
+                }
+                else
+                {
+                    state.getSlot(D.Name).isRed = false;
+                }
+                state.redTurn = !Redturn;
             }
-            else if (state[F.Name])
+            else if (state.getSlot(F.Name).isRed != null)
             {
-                Animate.setRed(A);
+                Animate.setColor(A, Redturn);
                 Animate.delayedExecute(() => Animate.setGrey(A), .4);
 
-                Animate.delayedExecute(() => Animate.setRed(B), .3);
+                Animate.delayedExecute(() => Animate.setColor(B, Redturn), .3);
                 Animate.delayedExecute(() => Animate.setGrey(B), .4);
 
-                Animate.delayedExecute(() => Animate.setRed(C), .35);
+                Animate.delayedExecute(() => Animate.setColor(C, Redturn), .35);
                 Animate.delayedExecute(() => Animate.setGrey(C), .45);
 
-                Animate.delayedExecute(() => Animate.setRed(D), .4);
+                Animate.delayedExecute(() => Animate.setColor(D, Redturn), .4);
                 Animate.delayedExecute(() => Animate.setGrey(D), .5);
 
-                Animate.delayedExecute(() => Animate.setRed(E), .45);
-                state[E.Name] = true;
+                Animate.delayedExecute(() => Animate.setColor(E, Redturn), .45);
+                if (Redturn == true)
+                {
+                    state.getSlot(E.Name).isRed = true;
+                }
+                else
+                {
+                    state.getSlot(E.Name).isRed = false;
+                }
+                state.redTurn = !Redturn;
             }
             else 
             {
-                Animate.setRed(A);
+                Animate.setColor(A, Redturn);
                 Animate.delayedExecute(() => Animate.setGrey(A), .4);
 
-                Animate.delayedExecute(() => Animate.setRed(B), .3);
+                Animate.delayedExecute(() => Animate.setColor(B, Redturn), .3);
                 Animate.delayedExecute(() => Animate.setGrey(B), .4);
 
-                Animate.delayedExecute(() => Animate.setRed(C), .35);
+                Animate.delayedExecute(() => Animate.setColor(C, Redturn), .35);
                 Animate.delayedExecute(() => Animate.setGrey(C), .45);
 
-                Animate.delayedExecute(() => Animate.setRed(D), .4);
+                Animate.delayedExecute(() => Animate.setColor(D, Redturn), .4);
                 Animate.delayedExecute(() => Animate.setGrey(D), .5);
 
-                Animate.delayedExecute(() => Animate.setRed(E), .45);
+                Animate.delayedExecute(() => Animate.setColor(E, Redturn), .45);
                 Animate.delayedExecute(() => Animate.setGrey(E), .55);
 
-                Animate.delayedExecute(() => Animate.setRed(F), .5);
-                state[F.Name] = true;
+                Animate.delayedExecute(() => Animate.setColor(F, Redturn), .5);
+                if (Redturn == true)
+                {
+                    state.getSlot(F.Name).isRed = true;
+                }
+                else
+                {
+                    state.getSlot(F.Name).isRed = false;
+                }
+                state.redTurn = !Redturn;
             };
             /*
             Animate.setRed(A);
