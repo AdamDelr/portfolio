@@ -64,6 +64,7 @@
         <Button Style="{StaticResource RoundButtonStyle}" x:Name="F5" Content="" HorizontalAlignment="Left" Margin="404,446,0,0" VerticalAlignment="Top" />
         <Button Style="{StaticResource RoundButtonStyle}" x:Name="F6" Content="" HorizontalAlignment="Left" Margin="484,446,0,0" VerticalAlignment="Top" />
         <Button Style="{StaticResource RoundButtonStyle}" x:Name="F7" Content="" HorizontalAlignment="Left" Margin="569,446,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+        <TextBlock x:Name="message" HorizontalAlignment="Left" Margin="266,539,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="45" Width="181" FontSize="24"/>
 
     </Grid>
 

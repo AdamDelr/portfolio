@@ -1,4 +1,13 @@
-﻿
+﻿/*
+ * GameState.cs
+ * by Adam del Rosario
+ * 
+ * Contains Connect 4 game status information
+ * 
+ * slotArray      array<Slot>        Holds information on all 42 slots on the board     
+ * redTurn        bool
+ * 
+ */
 
 using System;
 using System.Collections;

@@ -11,7 +11,7 @@ namespace Connect4
         //List of timers to avoid garbage collection
         private static IList<DispatcherTimer> timers = new List<DispatcherTimer>();
 
-        //Delay action
+        //--- Delay action ---
         internal static void delayedExecute(Action action, double delay )
         {
             var dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
@@ -35,7 +35,7 @@ namespace Connect4
             dispatcherTimer.Start();
         }
 
-        //Set Button Color Functions ---------------------------------------------------------
+        //--- Set Button Color helper functions ---------------------------------------------------------
         internal static void setColor(Button button, bool redTurn)
         {
             if (redTurn == true)
@@ -64,6 +64,11 @@ namespace Connect4
             }
         }
 
+        //--- "Drop" Token in a slot ---------------------------------------------------------
+        /* Button A-F      == Slots 1-7
+         * GameState state == Token location data 
+         * 
+         */
         internal static void dropPiece(Button A, Button B, Button C, Button D, Button E, Button F, GameState state)
         {
             bool Redturn = state.redTurn;
@@ -83,7 +88,6 @@ namespace Connect4
                 {
                     state.getSlot(A.Name).isRed = false;
                 }
-                state.redTurn = !Redturn;
             }
             else if (state.getSlot(C.Name).isRed != null)
             {
@@ -99,7 +103,6 @@ namespace Connect4
                 {
                     state.getSlot(B.Name).isRed = false;
                 }
-                state.redTurn = !Redturn;
             }
             else if (state.getSlot(D.Name).isRed != null)
             {
@@ -118,7 +121,6 @@ namespace Connect4
                 {
                     state.getSlot(C.Name).isRed = false;
                 }
-                state.redTurn = !Redturn;
             }
             else if (state.getSlot(E.Name).isRed != null)
             {
@@ -140,7 +142,6 @@ namespace Connect4
                 {
                     state.getSlot(D.Name).isRed = false;
                 }
-                state.redTurn = !Redturn;
             }
             else if (state.getSlot(F.Name).isRed != null)
             {
@@ -165,7 +166,6 @@ namespace Connect4
                 {
                     state.getSlot(E.Name).isRed = false;
                 }
-                state.redTurn = !Redturn;
             }
             else 
             {
@@ -193,27 +193,7 @@ namespace Connect4
                 {
                     state.getSlot(F.Name).isRed = false;
                 }
-                state.redTurn = !Redturn;
             };
-            /*
-            Animate.setRed(A);
-            Animate.delayedExecute(() => Animate.setGrey(A), .4);
-
-            Animate.delayedExecute(() => Animate.setRed(B), .3);
-            Animate.delayedExecute(() => Animate.setGrey(B), .4);
-
-            Animate.delayedExecute(() => Animate.setRed(C), .35);
-            Animate.delayedExecute(() => Animate.setGrey(C), .45);
-
-            Animate.delayedExecute(() => Animate.setRed(D), .4);
-            Animate.delayedExecute(() => Animate.setGrey(D), .5);
-
-            Animate.delayedExecute(() => Animate.setRed(E), .45);
-            Animate.delayedExecute(() => Animate.setGrey(E), .55);
-
-            Animate.delayedExecute(() => Animate.setRed(F), .5);
-            Animate.delayedExecute(() => Animate.setGrey(F), .6);
-            */
         }
     }
 }
