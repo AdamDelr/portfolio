@@ -73,23 +73,23 @@ namespace Connect4
         {
             bool Redturn = state.redTurn;
 
-            if (state.getSlot(A.Name).isRed != null)
+            if (state.getSlotState(A.Name)!= null)
             {
                //Column is full
             }
-            else if (state.getSlot(B.Name).isRed != null)
+            else if (state.getSlotState(B.Name)!= null)
             {
                 Animate.setColor(A, Redturn);
                 if (Redturn == true)
                 {
-                    state.getSlot(A.Name).isRed = true;                 
+                    state.setSlotState(A.Name,true);                 
                 }
                 else
                 {
-                    state.getSlot(A.Name).isRed = false;
+                    state.setSlotState(A.Name, false);
                 }
             }
-            else if (state.getSlot(C.Name).isRed != null)
+            else if (state.getSlotState(C.Name) != null)
             {
                 Animate.setColor(A, Redturn);
                 Animate.delayedExecute(() => Animate.setGrey(A), .4);
@@ -97,14 +97,14 @@ namespace Connect4
                 Animate.delayedExecute(() => Animate.setColor(B, Redturn), .3);
                 if (Redturn == true)
                 {
-                    state.getSlot(B.Name).isRed = true;
+                    state.setSlotState(B.Name, true);
                 }
                 else
                 {
-                    state.getSlot(B.Name).isRed = false;
+                    state.setSlotState(B.Name, false);
                 }
             }
-            else if (state.getSlot(D.Name).isRed != null)
+            else if (state.getSlotState(D.Name) != null)
             {
                 Animate.setColor(A, Redturn);
                 Animate.delayedExecute(() => Animate.setGrey(A), .4);
@@ -115,14 +115,14 @@ namespace Connect4
                 Animate.delayedExecute(() => Animate.setColor(C, Redturn), .35);
                 if (Redturn == true)
                 {
-                    state.getSlot(C.Name).isRed = true;
+                    state.setSlotState(C.Name, true);
                 }
                 else
                 {
-                    state.getSlot(C.Name).isRed = false;
+                    state.setSlotState(C.Name, false);
                 }
             }
-            else if (state.getSlot(E.Name).isRed != null)
+            else if (state.getSlotState(E.Name) != null)
             {
                 Animate.setColor(A, Redturn);
                 Animate.delayedExecute(() => Animate.setGrey(A), .4);
@@ -136,14 +136,14 @@ namespace Connect4
                 Animate.delayedExecute(() => Animate.setColor(D, Redturn), .4);
                 if (Redturn == true)
                 {
-                    state.getSlot(D.Name).isRed = true;
+                    state.setSlotState(D.Name, true);
                 }
                 else
                 {
-                    state.getSlot(D.Name).isRed = false;
+                    state.setSlotState(D.Name, false);
                 }
             }
-            else if (state.getSlot(F.Name).isRed != null)
+            else if (state.getSlotState(F.Name) != null)
             {
                 Animate.setColor(A, Redturn);
                 Animate.delayedExecute(() => Animate.setGrey(A), .4);
@@ -160,11 +160,11 @@ namespace Connect4
                 Animate.delayedExecute(() => Animate.setColor(E, Redturn), .45);
                 if (Redturn == true)
                 {
-                    state.getSlot(E.Name).isRed = true;
+                    state.setSlotState(E.Name, true);
                 }
                 else
                 {
-                    state.getSlot(E.Name).isRed = false;
+                    state.setSlotState(E.Name, false);
                 }
             }
             else 
@@ -187,11 +187,11 @@ namespace Connect4
                 Animate.delayedExecute(() => Animate.setColor(F, Redturn), .5);
                 if (Redturn == true)
                 {
-                    state.getSlot(F.Name).isRed = true;
+                    state.setSlotState(F.Name, true);
                 }
                 else
                 {
-                    state.getSlot(F.Name).isRed = false;
+                    state.setSlotState(F.Name, false);
                 }
             };
         }

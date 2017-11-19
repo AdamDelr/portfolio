@@ -11,7 +11,7 @@
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Text;
 
 namespace Connect4
 {
@@ -30,22 +30,36 @@ namespace Connect4
 
         internal GameState()
         {
+            //Red goes first
             redTurn = true;
         }
 
-        internal Slot getSlot(string loc)
+        internal bool? getSlotState(int loc)
         {
-            for(int i=0;i<42;i++)
-            {
-                if(slotArray[i].location == loc)
-                {
-                    return slotArray[i];
-                }
-            }
-            return null;
+            return slotArray[loc].isRed;
         }
-        
-        internal class Slot
+
+        internal bool? getSlotState(string loc)
+        {
+            int row;
+            int column;
+            row = (int)Encoding.ASCII.GetBytes(loc.Substring(0, 1))[0] - 65;
+            column = int.Parse(loc.Substring(1, 1))-1;
+
+            return slotArray[row*7+column].isRed;
+        }
+
+        internal void setSlotState(string loc, bool? newState)
+        {
+            int row;
+            int column;
+            row = (int)Encoding.ASCII.GetBytes(loc.Substring(0, 1))[0] - 65;
+            column = int.Parse(loc.Substring(1, 1))-1;
+
+            slotArray[row * 7 + column].setState(newState);
+        }
+
+        private class Slot
         {
             private string _location;
             internal string location
@@ -54,13 +68,24 @@ namespace Connect4
                 private set { _location = value; }
             }
 
-            internal bool? isRed;
+            private bool? _isRed;
+            internal bool? isRed
+            {
+                get { return _isRed; }
+                private set { _isRed = value; }
+            }
 
             internal Slot(string location)
             {
                 this.location = location;
                 isRed = null;
             }
+
+            internal void setState(bool? newState)
+            {
+                this.isRed = newState;
+            }
+
         }
     }
 }

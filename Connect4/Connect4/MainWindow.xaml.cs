@@ -32,7 +32,7 @@ namespace Connect4
             Button A1 = sender as Button;
             disableButtons();
             Animate.dropPiece(A1, B1, C1, D1, E1, F1, gameState);
-            Animate.delayedExecute(() => setMsg(Logic.checkWin(gameState)),.5);
+            setMsg(Logic.checkWin(gameState));
         }
 
         private void button_A2_Click(object sender, RoutedEventArgs e)
@@ -93,13 +93,13 @@ namespace Connect4
             A5.IsHitTestVisible = false;
             A6.IsHitTestVisible = false;
             A7.IsHitTestVisible = false;
-            Animate.delayedExecute(() => A1.IsHitTestVisible = true, 1);
-            Animate.delayedExecute(() => A2.IsHitTestVisible = true, 1);
-            Animate.delayedExecute(() => A3.IsHitTestVisible = true, 1);
-            Animate.delayedExecute(() => A4.IsHitTestVisible = true, 1);
-            Animate.delayedExecute(() => A5.IsHitTestVisible = true, 1);
-            Animate.delayedExecute(() => A6.IsHitTestVisible = true, 1);
-            Animate.delayedExecute(() => A7.IsHitTestVisible = true, 1);
+            Animate.delayedExecute(() => A1.IsHitTestVisible = true, .8);
+            Animate.delayedExecute(() => A2.IsHitTestVisible = true, .8);
+            Animate.delayedExecute(() => A3.IsHitTestVisible = true, .8);
+            Animate.delayedExecute(() => A4.IsHitTestVisible = true, .8);
+            Animate.delayedExecute(() => A5.IsHitTestVisible = true, .8);
+            Animate.delayedExecute(() => A6.IsHitTestVisible = true, .8);
+            Animate.delayedExecute(() => A7.IsHitTestVisible = true, .8);
         }
 
         private void setMsg(int result)

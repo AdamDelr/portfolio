@@ -9,86 +9,223 @@ namespace Connect4
 {
     static class Logic
     {
-
         internal static int checkWin(GameState state)
         {
-            const short HEIGHT = 6;
-            const short WIDTH = 7;
+            const short SIZE = 41;
 
             bool currentPlayer = state.redTurn;
-            short countH, countD;
-            short[] countV = new short[7];
+            short countH, countV, countD1, countD2;
+            countD1 = 0;
+            countD2 = 0;
+            countH = 0;
+            countV = 0;
 
             //loop top to bottom
-            for (int i = 0; i < HEIGHT; i++)
+            for (int i = 0; i <= SIZE; i = i + 7)
             {
-                countH = 0;
-                char row = 'X';
-                switch (i)
+                if (state.getSlotState(i) != null)
                 {
-                    case 5:
-                        row = 'A';
-                        break;
-                    case 4:
-                        row = 'B';
-                        break;
-                    case 3:
-                        row = 'C';
-                        break;
-                    case 2:
-                        row = 'D';
-                        break;
-                    case 1:
-                        row = 'E';
-                        break;
-                    case 0:
-                        row = 'F';
-                        break;
+                    if (state.getSlotState(i) == state.redTurn)
+                    {
+                        countV++;
+                    }
+                    else
+                    {
+                        countV = 0;
+                    }
                 }
-                //loop left to right
-                for (int j = 0; j < WIDTH; j++)
+                else
                 {
-                    //initialize countV
-                    if (i == 0)
-                    {
-                        countV[j] = 0;
-                    }
-                    string column = (j + 1).ToString();
-                    //If not empty
-                    if (state.getSlot(row + column) != null)
-                    {
-                        //Check player color and count
-                        if (state.getSlot(row + column).isRed == state.redTurn)
-                        {
-                            countH++;
-                            countV[j]++;
-                        }
-                        else
-                        {
-                            countH = 0;
-                            countV[j] = 0;
-                        }
+                    countV = 0;
+                }
 
-                        //--- Horizontal ---
-                        if (countH >= 4)
-                        {
-                            return Convert.ToInt16(currentPlayer);
-                        }
-                        //--- Vertical ---
-                        if (i >= 3)
-                        {
-                            for (int k = 0; k < WIDTH; k++)
-                            {
-                                if (countV[k] >= 4)
-                                {
-                                    return Convert.ToInt16(currentPlayer);
-                                }
-                            }
-                        }
+                //Check for winner
+                if (countV >= 4)
+                {
+                    return Convert.ToInt16(currentPlayer);
+                }
+
+                if (i >= 35 && i < 41)
+                {
+                    if (i == 35)
+                    {   //Start column 2
+                        i = -6;
+                        countV = 0;
                     }
+                    else if (i == 36)
+                    {   //Start column 3
+                        i = -5;
+                        countV = 0;
+                    }
+                    else if (i == 37)
+                    {   //Start column 4
+                        i = -4;
+                        countV = 0;
+                    }
+                    else if (i == 38)
+                    {   //Start column 5
+                        i = -3;
+                        countV = 0;
+                    }
+                    else if (i == 39)
+                    {   //Start column 6
+                        i = -2;
+                        countV = 0;
+                    }
+                    else if (i == 40)
+                    {   //Start column 7
+                        i = -1;
+                        countV = 0;
+                    }
+                }
+
+            }
+            //--- loop left to right --
+            for (int i = 0; i < SIZE; i++)
+            {
+                if (state.getSlotState(i) != null)
+                {
+                    if (state.getSlotState(i) == state.redTurn)
+                    {
+                        countH++;
+                    }
+                    else
+                    {
+                        countH = 0;
+                    }
+                }
+                else
+                {
+                    countH = 0;
+                }
+
+                //Check for winner
+                if (countH >= 4)
+                {
+                    return Convert.ToInt16(currentPlayer);
+                }
+
+                if (i == 6 || i == 13 || i == 20 || i == 27 || i == 34)
+                {   //Start new row
+                    countH = 0;
+                }
+
+            }
+
+            //--- Diagonal 1--- L/R
+            for (int i = 0; i <= SIZE; i=i+8)
+            {
+                if (state.getSlotState(i) != null)
+                {
+                    if (state.getSlotState(i) == state.redTurn)
+                    {
+                        countD1++;
+                    }
+                    else
+                    {
+                        countD1 = 0;
+                    }
+                }
+                else
+                {
+                    countD1 = 0;
+                }
+
+                if (countD1 >= 4)
+                {
+                    return Convert.ToInt16(currentPlayer);
+                }
+
+                if (i == 40)
+                {   //Start line 2
+                    i = -7;
+                    countD1 = 0;
+                }
+                else if (i == 41)
+                {   //Start line 3
+                    i = -6;
+                    countD1 = 0;
+                }
+                else if (i == 34)
+                {   //Start line 4
+                    i = -5;
+                    countD1 = 0;
+                }
+                else if (i == 27)
+                {   //Start line 5
+                    i = -1;
+                    countD1 = 0;
+                }
+                else if (i == 39)
+                {   //Start line 6
+                    i = 6;
+                    countD1 = 0;
+                }
+                else if (i == 38)
+                {   //End
+                    i = 42;
+                    countD1 = 0;
                 }
             }
-            state.redTurn = !currentPlayer;
+
+            //--- Diagonal 2--- R/L
+            for (int i = 3; i <= SIZE; i = i + 6)
+            {
+                if (state.getSlotState(i) != null)
+                {
+                    if (state.getSlotState(i) == state.redTurn)
+                    {
+                        countD2++;
+                    }
+                    else
+                    {
+                        countD2 = 0;
+                    }
+                }
+                else
+                {
+                    countD2 = 0;
+                }
+
+                if (countD2 >= 4)
+                {
+                    return Convert.ToInt16(currentPlayer);
+                }
+
+                if (i == 21)
+                {   //Start line 2
+                    i = -2;
+                    countD2 = 0;
+                }
+                else if (i == 28)
+                {   //Start line 3
+                    i = -1;
+                    countD2 = 0;
+                }
+                else if (i == 35)
+                {   //Start line 4
+                    i = 0;
+                    countD2 = 0;
+                }
+                else if (i == 36)
+                {   //Start line 5
+                    i = 7;
+                    countD2 = 0;
+                }
+                else if (i == 37)
+                {   //Start line 6
+                    i = 14;
+                    countD2 = 0;
+                }
+                else if (i == 38)
+                {   //End
+                    i = 42;
+                    countD2 = 0;
+                }
+            }
+
+            //Next player's turn. Return with no winner
+            state.redTurn = !state.redTurn;
             return 3;
         }
     }
