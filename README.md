@@ -1,2 +1,2 @@
-# portfolio
-Programming portfolio
+# Portfolio
+Miracosta College C# project
